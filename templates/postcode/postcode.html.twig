@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Postcode Checker{% endblock %}
+
+{% block body %}
+
+	<p class="text-center font-weight-bold h3 mt-5">Please enter a Postcode</p>
+	{{ form_start(postalcodeform)}}
+		<div class="row justify-content-md-center mt-4 mb-5">
+			<div class="col-md-4 col-sm-12 p-1">
+				{{ form_row(postalcodeform.postal_code, {'attr': {'class': 'form-control'}}) }}
+			</div>
+			<div class="col-md-2 col-sm-12 p-1">
+				{{ form_row(postalcodeform.serachbutton, {'attr': {'class': 'btn form-control btn-primary'}}) }}
+			</div>
+		</div>
+	{{ form_end(postalcodeform)}}
+	{% if post_code_exists != '' %}
+		<p class="text-center font-weight-bold h4 mt-5">{{post_code_exists}}</p>
+	{% endif %}
+
+{% endblock %}
